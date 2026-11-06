@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SkyCast – Live Weather Forecast</title>
+<link rel="icon" href="images/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <h1><img src="images/logo.svg" alt="" width="32" height="32"> SkyCast</h1>
+    <button id="unitBtn" class="chip" type="button" aria-label="Switch temperature unit">°C</button>
+  </header>
+
+  <form id="searchForm" class="search" novalidate>
+    <input id="cityInput" type="search" placeholder="Search for a city…" aria-label="City name" autocomplete="off">
+    <button class="btn" type="submit">Search</button>
+    <button id="locBtn" class="btn ghost" type="button" title="Use my location">📍 My location</button>
+  </form>
+
+  <div id="status" class="status" role="status" aria-live="polite" hidden></div>
+
+  <main id="weather" hidden>
+    <section class="current card">
+      <div>
+        <h2 id="place"></h2>
+        <p id="updated" class="muted"></p>
+        <div class="temp-row">
+          <span id="icon" class="big-icon" aria-hidden="true"></span>
+          <span id="temp" class="temp"></span>
+        </div>
+        <p id="desc" class="desc"></p>
+      </div>
+      <dl class="details" id="details"></dl>
+    </section>
+
+    <h3 class="section-title">7-day forecast</h3>
+    <section id="forecast" class="forecast"></section>
+  </main>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
