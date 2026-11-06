@@ -1,7 +1,6 @@
-// SkyCast – uses the free Open-Meteo APIs (no API key required)
 const GEO_URL = "https://geocoding-api.open-meteo.com/v1/search";
 const FORECAST_URL = "https://api.open-meteo.com/v1/forecast";
-const REFRESH_MS = 10 * 60 * 1000; // live update every 10 minutes
+const REFRESH_MS = 10 * 60 * 1000; 
 
 const $ = (id) => document.getElementById(id);
 const els = {
@@ -12,7 +11,7 @@ const els = {
 
 const state = { place: null, metric: true };
 
-// WMO weather codes → description + emoji
+
 const CODES = {
   0: ["Clear sky", "☀️"], 1: ["Mainly clear", "🌤️"], 2: ["Partly cloudy", "⛅"], 3: ["Overcast", "☁️"],
   45: ["Fog", "🌫️"], 48: ["Freezing fog", "🌫️"],
@@ -27,7 +26,7 @@ const CODES = {
 };
 const codeInfo = (c) => CODES[c] || ["Unknown", "❓"];
 
-/* ---------- UI helpers ---------- */
+/*ui helper*/
 function showStatus(type, message) {
   els.status.hidden = false;
   els.status.className = "status " + type;
@@ -44,7 +43,7 @@ function setBusy(busy) {
   [els.input, els.locBtn, els.form.querySelector("button[type=submit]")].forEach((e) => (e.disabled = busy));
 }
 
-/* ---------- API ---------- */
+
 async function fetchJSON(url) {
   const ctrl = new AbortController();
   const timer = setTimeout(() => ctrl.abort(), 10000);
@@ -91,7 +90,7 @@ async function loadWeather(place, silent = false) {
   }
 }
 
-/* ---------- Rendering ---------- */
+
 function render(data) {
   const u = state.metric ? "°C" : "°F";
   const c = data.current;
@@ -142,7 +141,7 @@ function render(data) {
   els.weather.hidden = false;
 }
 
-/* ---------- Events ---------- */
+
 els.form.addEventListener("submit", async (e) => {
   e.preventDefault();
   const name = els.input.value.trim();
@@ -176,12 +175,11 @@ els.unitBtn.addEventListener("click", () => {
   if (state.place) loadWeather(state.place);
 });
 
-// Live updates: refresh quietly while the tab is visible
+
 setInterval(() => { if (state.place && !document.hidden) loadWeather(state.place, true); }, REFRESH_MS);
 
-// Start: last searched city, otherwise a default
 (function init() {
   let place = null;
-  try { place = JSON.parse(localStorage.getItem("skycast-place")); } catch (e) { /* ignore */ }
+  try { place = JSON.parse(localStorage.getItem("skycast-place")); } catch (e)
   loadWeather(place || { name: "Bengaluru, Karnataka, India", lat: 12.9716, lon: 77.5946 });
 })();
