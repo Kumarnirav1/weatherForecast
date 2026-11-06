@@ -12,7 +12,7 @@ h1{margin:0;font-size:1.6rem;display:flex;align-items:center;gap:.5rem}
 .muted{color:var(--muted);margin:.25rem 0}
 .card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:1.5rem}
 
-/* search */
+
 .search{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1rem}
 .search input{flex:1 1 220px;padding:.8rem 1rem;border-radius:12px;border:1px solid var(--border);background:var(--card);color:var(--text);font-size:1rem}
 .btn,.chip{padding:.8rem 1.2rem;border-radius:12px;border:2px solid var(--brand);background:var(--brand);color:var(--brand-text);font:600 1rem inherit;font-family:inherit;cursor:pointer}
@@ -20,14 +20,14 @@ h1{margin:0;font-size:1.6rem;display:flex;align-items:center;gap:.5rem}
 .chip{padding:.4rem .9rem;border-radius:999px}
 .btn:disabled{opacity:.6;cursor:wait}
 
-/* status */
+
 .status{padding:1rem;border-radius:12px;margin-bottom:1rem;text-align:center;font-weight:600}
 .status.error{background:var(--err-bg);color:var(--err)}
 .status.loading{color:var(--muted)}
 .spinner{display:inline-block;width:18px;height:18px;border:3px solid var(--border);border-top-color:var(--brand);border-radius:50%;vertical-align:middle;margin-right:.6rem;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 
-/* current */
+
 .current{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;align-items:center}
 .current h2{margin:0;font-size:1.5rem}
 .temp-row{display:flex;align-items:center;gap:.75rem;margin-top:.5rem}
@@ -39,7 +39,7 @@ h1{margin:0;font-size:1.6rem;display:flex;align-items:center;gap:.5rem}
 .details dt{color:var(--muted);font-size:.85rem}
 .details dd{margin:0;font-weight:600;font-size:1.1rem}
 
-/* forecast */
+
 .section-title{margin:1.5rem 0 .75rem}
 .forecast{display:grid;grid-template-columns:repeat(7,1fr);gap:.75rem}
 .day{text-align:center;padding:1rem .5rem}
